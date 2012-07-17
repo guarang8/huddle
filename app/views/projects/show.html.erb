@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+Users for <%= @project.name %>
+
+<%# @project.users.each do |user| %> 
+<%#= user.login %>	<%#= user.email %>
+<%# end %>
+
+Status Reports for <%= @project.name %>
+
+<% @reports.keys.sort.each do |date| %>
+Reports for <%= date.to_s(:long) %>
+
+<% @reports[date].each do |report| %>
+Yesterday I: <%= report.yesterday %> Today I will: <%= report.today %>
+<% end %>
+<% end %> 
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
